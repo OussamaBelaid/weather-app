@@ -14,7 +14,7 @@ e.preventDefault();
 var location = searchValue.value;
 messageTwo.textContent = '';
 // get the weather data from the server
-fetch('http://localhost:3000/weather?adress='+location).then((response) => {
+fetch('/weather?adress='+location).then((response) => {
     response.json().then((data) => {
         if(data.error)
         {
