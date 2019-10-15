@@ -14,6 +14,7 @@ const viewDirectory = path.join(__dirname,'../templates/views');
 const partialPath = path.join(__dirname, '../templates/partials');
 
 app.use(express.static(publicDirectoryPath));
+
 // setup handelbars engine and views location
 app.set('view engine','hbs');
 app.set('views',viewDirectory);
@@ -44,7 +45,7 @@ app.get('/weather', (req,res) => {
         })
     }
     const location = req.query.adress;
-    geocode(location, (error,{latitude,longitude,location}) => {
+    geocode(location, (error,{latitude,longitude,location} = {}) => {
         if(error)
         {
             return res.send({error});
